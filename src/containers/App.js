@@ -3,6 +3,7 @@ import Cardlist from '../components/Cardlist';
 
 import SearchBox from '../components/SearchBox';
 import Scroll from '../components/Scroll';
+import ErrorBounding from '../components/ErrorBounding';
 
 
 class App extends Component {
@@ -50,7 +51,9 @@ componentDidMount(){
               <h1 className="f1 lh grow"> Robot are here </h1>
               <SearchBox searchChange={this.onSearchChange}/>
               <Scroll>
-              <Cardlist robots={filteredrobots}/>
+                <ErrorBounding>
+                  <Cardlist robots={filteredrobots}/>
+                  </ErrorBounding>
               </Scroll>
               </div>
           );
